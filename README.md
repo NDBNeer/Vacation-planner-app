@@ -1,2 +1,0 @@
-# Tourist-Spots
-Tourist Spots
