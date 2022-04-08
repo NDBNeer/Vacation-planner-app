@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -19,15 +20,16 @@ import android.widget.TextView;
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     String countrylist[]={"India","Canada","New York","USA"};
     ArrayList<Places> plclist=new ArrayList<>();
     ArrayList<Places>tempList=new ArrayList<>();
     ArrayList<String>tempNames=new ArrayList<>();
     Spinner country,places;
-    ImageView place_img;
+    ImageView place_img,cart;
     TextView plc_name,desc,cost;
-    Button more;
+    Button more,addplace;
+    EditText visitorno,budget;
     public static Places obj;
 
     @Override
@@ -41,6 +43,10 @@ public class MainActivity extends AppCompatActivity {
         desc=findViewById(R.id.desc);
         more=findViewById(R.id.more);
         cost=findViewById(R.id.cost);
+        cart=findViewById(R.id.cart);
+        budget=findViewById(R.id.budget);
+        visitorno=findViewById(R.id.visitorno);
+        addplace=findViewById(R.id.addplace);
         fillData();
         fillTemp(countrylist[0]);
         ArrayAdapter aa1=new ArrayAdapter(this, R.layout.myspin,countrylist);
@@ -49,14 +55,8 @@ public class MainActivity extends AppCompatActivity {
         places.setAdapter(aa2);
         country.setOnItemSelectedListener(new SpinnerAction());
         places.setOnItemSelectedListener(new SpinnerAction());
-        more.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                obj=verify(plc_name.getText().toString());
-                Intent i=new Intent(MainActivity.this,DetailActivity.class);
-                startActivity(i);
-            }
-        });
+        more.setOnClickListener(this);
+        addplace.setOnClickListener(this);
     }
 
     public Places verify(String name)
@@ -77,6 +77,33 @@ public class MainActivity extends AppCompatActivity {
         plclist.add(new Places(countrylist[2],"Steven Frame","Perhaps the most unmistakably American landmark is Mount Rushmore, a national memorial located in South Dakota. ",R.drawable.stevenframe,600000.00));
 
     }
+
+    @Override
+    public void onClick(View view) {
+        if (view.getId()==R.id.more)
+        {
+            obj=verify(plc_name.getText().toString());
+            Intent i=new Intent(MainActivity.this,DetailActivity.class);
+            startActivity(i);
+        }
+        else
+        {
+            if(visitorno.getText().toString().isEmpty())
+                visitorno.setError("Enter Visitor's number");
+            else visitorno.setError(null);
+
+             if (budget.getText().toString().isEmpty())
+                budget.setError("Enter your budget");
+            else
+             { if(Integer.parseInt(budget.getText().toString()) < Integer.parseInt(cost.getText().toString()))
+                 budget.setError("Your budget is exceed");
+                else
+                    budget.setError(null);
+             }
+        }
+
+    }
+
     private class SpinnerAction implements AdapterView.OnItemSelectedListener{
 
         @Override
