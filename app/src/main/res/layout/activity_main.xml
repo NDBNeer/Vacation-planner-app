@@ -13,22 +13,32 @@
         android:orientation="vertical"
         android:layout_margin="5dp"
         >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="5dp"
+            >
+            <TextView
+                android:id="@+id/head"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_gravity="center"
+                android:gravity="start"
+                android:text="@string/tourist_spots"
+                android:textColor="#9C27B0"
+                android:textSize="30sp"
+                android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/head"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginRight="10dp"
-        android:text="Tourist Spots"
-        android:textAlignment="center"
-        android:textColor="#9C27B0"
-        android:textSize="34sp"
-        android:textStyle="bold"
-        android:layout_gravity="center"
-        />
+            <ImageView
+                android:id="@+id/cart"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/cart" />
 
+        </RelativeLayout>
         <TextView
             android:id="@+id/countlab"
             android:layout_width="wrap_content"
@@ -141,5 +151,47 @@
 
     </LinearLayout>
     </LinearLayout>
+
+        <EditText
+            android:background="@color/cardview_shadow_end_color"
+            android:layout_margin="5dp"
+            android:id="@+id/visitorno"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:hint="@string/enter_visitor_s_number"/>
+
+        <EditText
+            android:layout_margin="5dp"
+            android:background="@color/cardview_shadow_end_color"
+            android:id="@+id/budget"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:hint="@string/enter_the_budget"/>
+
+        <Button
+            android:id="@+id/addplace"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:paddingStart="10dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:paddingEnd="10dp"
+            android:paddingRight="10dp"
+            android:text="Book Place"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:backgroundTint="@color/purpel"
+            android:textColor="@color/white" />
+
     </LinearLayout>
 </ScrollView>

@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Tourist Places</string>
+    <string name="enter_visitor_s_number">Enter visitor\'s number</string>
+    <string name="enter_the_budget">Enter the budget</string>
+    <string name="place_detail">Place Detail</string>
+    <string name="tourist_spots">Tourist Spots</string>
 </resources>

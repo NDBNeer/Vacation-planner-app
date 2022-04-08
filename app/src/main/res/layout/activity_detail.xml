@@ -13,25 +13,41 @@
         android:orientation="vertical"
         android:layout_margin="5dp"
         >
-
-    <TextView
-        android:id="@+id/head"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginRight="10dp"
-        android:text="Place Detail"
-        android:layout_gravity="center"
-        android:textAlignment="center"
-        android:textColor="#9C27B0"
-        android:textSize="34sp"
-        android:textStyle="bold"
-        app:layout_constraintHorizontal_bias="0.454"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="horizontal"
+        android:layout_margin="5dp"
+        >
 
+        <Button
+            android:id="@+id/back"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_alignParentStart="true"
+            android:background="@drawable/back" />
+
+        <TextView
+            android:id="@+id/head"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/place_detail"
+            android:textAlignment="center"
+            android:textColor="#9C27B0"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/cart"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/cart" />
+
+    </RelativeLayout>
     <ImageView
         android:id="@+id/place_img"
         android:scaleType="centerInside"
@@ -39,12 +55,8 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/head"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
@@ -73,26 +85,47 @@
             android:text="Description"
             android:textSize="16sp" />
 
+        <TextView
+            android:id="@+id/cost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:textColor="@color/black"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="Description"
+            android:textSize="16sp"/>
+
+        <EditText
+            android:background="@color/cardview_shadow_end_color"
+            android:layout_margin="5dp"
+            android:id="@+id/visitorno"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:hint="@string/enter_visitor_s_number"/>
         <Button
-        android:id="@+id/back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
-        android:background="@color/white"
-        android:paddingStart="10dp"
-        android:paddingLeft="10dp"
-        android:paddingTop="5dp"
-        android:paddingEnd="5dp"
-        android:paddingRight="10dp"
-        android:text="Back"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        app:backgroundTint="#ffffff"
-        />
+            android:id="@+id/addplace"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:paddingStart="10dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:paddingEnd="10dp"
+            android:paddingRight="10dp"
+            android:text="Book Place"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:backgroundTint="@color/purpel"
+            android:textColor="@color/white" />
+
 
     </LinearLayout>
 </ScrollView>
