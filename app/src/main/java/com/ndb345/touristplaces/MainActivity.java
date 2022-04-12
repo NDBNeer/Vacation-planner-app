@@ -3,9 +3,6 @@ package com.ndb345.touristplaces;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -16,23 +13,26 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
-import android.widget.TextView;
+import android.widget.Toast;
 
-import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     String countrylist[]={"All","India","Canada","New York","USA"};
     ArrayList<Places> plclist=new ArrayList<>();
     ArrayList<Places>tempList=new ArrayList<>();
+    public static ArrayList<String>bookedplace=new ArrayList<>();
+    public static ArrayList<Double>bookedcost=new ArrayList<>();
+    public static ArrayList<String>bookedno=new ArrayList<>();
     Spinner country;
     ListView places;
     ImageView cart;
-    Button addplace;
+    //Button addplace;
     EditText visitorno,budget;
     public static Places obj;
     String plcTitle;
     int index;
+    double cst;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,17 +41,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         fillData();
         ArrayAdapter aa1=new ArrayAdapter(this, R.layout.myspin,countrylist);
         country.setAdapter(aa1);
-        places.setAdapter(new PlacesAdapter(this,plclist));
+        places.setAdapter(new PlacesAdapter(this,plclist,index));
+      //  addplace.setOnClickListener(this);
+        cart.setOnClickListener(this);
         country.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 if(i==0){
                     index=0;
-                    places.setAdapter(new PlacesAdapter(MainActivity.this,plclist));
+                    places.setAdapter(new PlacesAdapter(MainActivity.this,plclist,index));
                 }
                 else {
                     fillTemp(countrylist[i]);
-                    places.setAdapter(new PlacesAdapter(MainActivity.this,tempList));
+                    places.setAdapter(new PlacesAdapter(MainActivity.this,tempList,index));
                     index=i;
                 }
             }
@@ -64,21 +66,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 if(index==0)
+                {
                     plcTitle=plclist.get(i).getName();
+                    cst=plclist.get(i).getLiving_cost();
+                    Log.d("cst1",String.valueOf(cst));}
                 else
+                {
                     plcTitle=tempList.get(i).getName();
+                    cst=tempList.get(i).getLiving_cost();
+                    Log.d("cst2",String.valueOf(cst));
+                }
             }
         });
-        addplace.setOnClickListener(this);
     }
-
     private void findId() {
         country=findViewById(R.id.country);
         places=findViewById(R.id.places);
         cart=findViewById(R.id.cart);
         budget=findViewById(R.id.budget);
         visitorno=findViewById(R.id.visitorno);
-        addplace=findViewById(R.id.addplace);
+      //  addplace=findViewById(R.id.addplace);
     }
 
     public Places verify(String name)
@@ -136,28 +143,38 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
-        if (view.getId()==R.id.more)
-        {
-           // obj=verify(plc_name.getText().toString());
-            Intent i=new Intent(MainActivity.this,DetailActivity.class);
-            startActivity(i);
-        }
-       /* else
+        /*if (view.getId()==R.id.addplace)
         {
             if(visitorno.getText().toString().isEmpty())
                 visitorno.setError("Enter Visitor's number");
             else visitorno.setError(null);
 
-             if (budget.getText().toString().isEmpty())
+            if (budget.getText().toString().isEmpty())
                 budget.setError("Enter your budget");
             else
-             {
-                 if(Integer.parseInt(budget.getText().toString()) < Integer.parseInt(cost.getText().toString()))
-                 budget.setError("Your budget is exceed");
+            {
+                Log.d("cst",String.valueOf(cst));
+                if(Integer.parseInt(budget.getText().toString()) > cst)
+                    budget.setError("Your budget is exceed");
                 else
                     budget.setError(null);
-             }
+            }
+
+           // obj=verify(plc_name.getText().toString());
+            if (bookedplace.contains(plcTitle))
+                Toast.makeText(getBaseContext(),"You've already added this place",Toast.LENGTH_LONG).show();
+            else
+            {
+                 bookedplace.add(plcTitle);
+                 bookedcost.add(cst);
+                 bookedno.add(visitorno.getText().toString());
+            }
         }*/
+        if (view.getId()==R.id.cart)
+        {
+            Intent intent=new Intent(this, BookedPlaceActivity.class);
+            startActivity(intent);
+        }
 
     }
     //method to fill the temp list upon the given topic

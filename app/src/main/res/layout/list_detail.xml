@@ -64,7 +64,13 @@
                 android:text="Cost"
                 android:maxLines="1"
                 android:textSize="12sp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
             <Button
+                android:focusableInTouchMode="false"
                 android:id="@+id/more"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -76,12 +82,29 @@
                 android:paddingTop="5dp"
                 android:paddingEnd="5dp"
                 android:paddingRight="10dp"
-                android:text="Show More"
+                android:text="More"
                 android:textSize="14sp"
                 android:textStyle="bold"
                 app:backgroundTint="#ffffff"
                 android:textColor="@color/black" />
-
+            <Button
+                android:id="@+id/addplace"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="10dp"
+                android:paddingStart="10dp"
+                android:paddingLeft="10dp"
+                android:paddingTop="5dp"
+                android:paddingEnd="5dp"
+                android:paddingRight="10dp"
+                android:text="Book"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:backgroundTint="#ffffff"
+                android:textColor="@color/black" />
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

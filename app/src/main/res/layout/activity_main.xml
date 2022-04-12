@@ -9,7 +9,7 @@
     >
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         android:layout_margin="5dp"
         >
@@ -95,9 +95,15 @@
         <ListView
             android:id="@+id/places"
             android:layout_width="match_parent"
-            android:layout_height="400dp" />
+            android:clickable="true"
+            android:cacheColorHint="#00000000"
+            android:divider="#adb8c2"
+            android:dividerHeight="1dp"
+            android:scrollingCache="false"
+            android:smoothScrollbar="true"
+            android:layout_height="500dp" />
 
-        <Button
+      <!--  <Button
             android:id="@+id/addplace"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -115,6 +121,6 @@
             android:textStyle="bold"
             app:backgroundTint="@color/purpel"
             android:textColor="@color/white" />
-
+-->
     </LinearLayout>
 </ScrollView>
