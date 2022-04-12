@@ -39,6 +39,28 @@
                 android:background="@drawable/cart" />
 
         </RelativeLayout>
+        <EditText
+            android:background="@color/cardview_shadow_end_color"
+            android:layout_margin="5dp"
+            android:id="@+id/visitorno"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:hint="@string/enter_visitor_s_number"/>
+
+        <EditText
+            android:layout_margin="5dp"
+            android:background="@color/cardview_shadow_end_color"
+            android:id="@+id/budget"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:hint="@string/enter_the_budget"/>
+
         <TextView
             android:id="@+id/countlab"
             android:layout_width="wrap_content"
@@ -64,115 +86,16 @@
             android:text="Places"
             android:textSize="16dp"
             android:textStyle="bold" />
-        <Spinner
+       <!-- <Spinner
         android:id="@+id/places"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_margin="5dp"
-        android:background="@color/cardview_shadow_end_color"
-        >
-
-    <ImageView
-        android:id="@+id/place_img"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginStart="5dp"
-        android:scaleType="centerCrop"
-        android:adjustViewBounds="true"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="5dp"
-        tools:srcCompat="@tools:sample/avatars" />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        >
-
-    <TextView
-        android:id="@+id/plc_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
-        android:text="Place Name"
-        android:textColor="@color/black"
-        android:textSize="16sp" />
-    <TextView
-        android:id="@+id/desc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="5dp"
-        android:textColor="@color/black"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
-        android:text="Description"
-        android:maxLines="1"
-        android:ems="3"
-        android:textSize="12sp"/>
-        <TextView
-            android:id="@+id/cost"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="5dp"
-            android:textColor="@color/black"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="10dp"
-            android:text="Cost"
-            android:maxLines="1"
-            android:textSize="12sp"/>
-        <Button
-            android:id="@+id/more"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="10dp"
-            android:paddingStart="10dp"
-            android:paddingLeft="10dp"
-            android:paddingTop="5dp"
-            android:paddingEnd="5dp"
-            android:paddingRight="10dp"
-            android:text="Show More"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            app:backgroundTint="#ffffff"
-            android:textColor="@color/black" />
-
-    </LinearLayout>
-    </LinearLayout>
-
-        <EditText
-            android:background="@color/cardview_shadow_end_color"
-            android:layout_margin="5dp"
-            android:id="@+id/visitorno"
+        />-->
+        <ListView
+            android:id="@+id/places"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="number"
-            android:textColor="@color/black"
-            android:textColorHint="@color/black"
-            android:hint="@string/enter_visitor_s_number"/>
-
-        <EditText
-            android:layout_margin="5dp"
-            android:background="@color/cardview_shadow_end_color"
-            android:id="@+id/budget"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="number"
-            android:textColor="@color/black"
-            android:textColorHint="@color/black"
-            android:hint="@string/enter_the_budget"/>
+            android:layout_height="400dp" />
 
         <Button
             android:id="@+id/addplace"

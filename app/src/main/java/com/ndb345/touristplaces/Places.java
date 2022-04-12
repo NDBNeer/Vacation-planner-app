@@ -1,17 +1,28 @@
 package com.ndb345.touristplaces;
 
+import java.util.ArrayList;
+
 public class Places {
     private String category;
     private double living_cost;
     private String name,description;
-    private int image;
+    private int image1;
+    private ArrayList<Integer> image;
 
-    public Places(String category,String name, String description, int image,double living_cost) {
+    public Places(String category, String name, String description, int image1, ArrayList<Integer> image, double living_cost) {
         this.category = category;
         this.name = name;
         this.description = description;
+        this.image1 = image1;
         this.image = image;
         this.living_cost = living_cost;
+    }
+    public int getImage1() {
+        return image1;
+    }
+
+    public void setImage1(int image1) {
+        this.image1 = image1;
     }
 
     public double getLiving_cost() {
@@ -46,11 +57,11 @@ public class Places {
         this.description = description;
     }
 
-    public int getImage() {
+    public ArrayList<Integer> getImage() {
         return image;
     }
 
-    public void setImage(int image) {
+    public void setImage(ArrayList<Integer> image) {
         this.image = image;
     }
 
