@@ -25,6 +25,7 @@ public class PlacesAdapter extends BaseAdapter {
     double cst;
     public static ArrayList<String>bookedplace=new ArrayList<>();
     public static ArrayList<Double>bookedcost=new ArrayList<>();
+    public static ArrayList<BookedPlaceList> bpl=new ArrayList<>();
 
     public PlacesAdapter(Context context, ArrayList<Places> data,int index)
     {
@@ -97,8 +98,9 @@ public class PlacesAdapter extends BaseAdapter {
                     Toast.makeText(mContext,"You've already added this place",Toast.LENGTH_LONG).show();
                     else
                     {
+                        bpl.add(new BookedPlaceList(cst,plcTitle,index));
                         bookedplace.add(plcTitle);
-                        bookedcost.add(cst);
+                        //bookedcost.add(cst);
                        // bookedno.add(visitorno.getText().toString());
                     }
 

@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,6 +25,7 @@ public class DetailActivity extends AppCompatActivity {
     TextView plc_name,desc,costt;
     Button back,addplace;
     ImageView cart;
+    EditText visitorno;
     String name,idesc,cost,category;
     ArrayList<Integer> imag=new ArrayList<>();
     @Override
@@ -33,6 +35,7 @@ public class DetailActivity extends AppCompatActivity {
        // place_img=findViewById(R.id.place_img);
         viewPage=findViewById(R.id.viewPage);
         plc_name=findViewById(R.id.plc_name);
+        visitorno=findViewById(R.id.visitorno);
         desc=findViewById(R.id.desc);
         costt=findViewById(R.id.cost);
         back=findViewById(R.id.back);
@@ -69,6 +72,11 @@ public class DetailActivity extends AppCompatActivity {
         addplace.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                if(visitorno.getText().toString().isEmpty())
+                    visitorno.setError("Enter Visitor's number");
+                else visitorno.setError(null);
+
                 if (PlacesAdapter.bookedplace.contains(name))
                     Toast.makeText(DetailActivity.this,"You've already added this place",Toast.LENGTH_LONG).show();
                 else
@@ -80,6 +88,5 @@ public class DetailActivity extends AppCompatActivity {
                 }
             }
         });
-
     }
 }

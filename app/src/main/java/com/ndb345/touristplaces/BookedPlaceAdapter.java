@@ -11,10 +11,10 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class BookedPlaceAdapter extends BaseAdapter {
-    private ArrayList<String> data;
+    private ArrayList<BookedPlaceList> data;
     private LayoutInflater inflater;//we need it to connect with the list_row.xml
 
-    public BookedPlaceAdapter(Context context, ArrayList<String> data)
+    public BookedPlaceAdapter(Context context, ArrayList<BookedPlaceList> data)
     {
         this.data=data;
         inflater=LayoutInflater.from(context);
@@ -50,7 +50,9 @@ public class BookedPlaceAdapter extends BaseAdapter {
         }
         else
             holder=(ViewHolder) view.getTag();
-            holder.title.setText(data.get(i));
+            holder.title.setText(data.get(i).getName());
+            holder.cost.setText(String.valueOf(data.get(i).getLiving_cost()));
+            holder.noofvisitors.setText(data.get(i).getNovisitors());
             holder.delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

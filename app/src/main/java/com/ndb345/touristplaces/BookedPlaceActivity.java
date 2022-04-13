@@ -18,7 +18,7 @@ public class BookedPlaceActivity extends AppCompatActivity {
         setContentView(R.layout.shoppingcart);
         lv=findViewById(R.id.lv);
         back=findViewById(R.id.back);
-        lv.setAdapter(new BookedPlaceAdapter(this,PlacesAdapter.bookedplace));
+        lv.setAdapter(new BookedPlaceAdapter(this,PlacesAdapter.bpl));
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
